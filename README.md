@@ -70,6 +70,10 @@ A complete Guide to Install Frappe/ERPNext version 15  in Ubuntu 22.04 LTS
 
     sudo apt-get install software-properties-common
     sudo apt install mariadb-server
+
+ Make sure mariadb service is running
+ sudo service mysql start
+    
     sudo mysql_secure_installation
     
     
@@ -178,12 +182,17 @@ Now press (Ctrl-X) to exit
     
     bench --version
     
+    Install Supervisor, this will ensure restarting of services can happen 
+
+      sudo apt install supervisor -y
+    
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
     bench init frappe-bench --frappe-branch version-15 --python python3.11
     
     cd frappe-bench/
     bench start
+
     
 ### STEP 14 create a site in frappe bench 
     
